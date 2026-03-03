@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>חברת E - פתרונות דיגיטליים</title>
+    <title>האתר של דובלה 🧸</title>
     <style>
         body { font-family: -apple-system, system-ui, sans-serif; background-color: #f0f2f5; margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
         #lock-screen { text-align: center; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); width: 300px; }
@@ -12,7 +12,7 @@
         input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; text-align: center; font-size: 16px; }
         .btn-primary { background-color: #1a73e8; color: white; border: none; padding: 12px 20px; border-radius: 8px; cursor: pointer; width: 100%; font-size: 16px; font-weight: bold; }
         
-        /* עיצוב הבוט */
+        /* עיצוב הבוט של דובלה */
         .bot-container { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin-bottom: 20px; border-right: 5px solid #1a73e8; }
         .bot-msg { background: #e8f0fe; padding: 12px; border-radius: 8px; margin-bottom: 15px; display: block; line-height: 1.5; font-weight: 500; }
         .options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
@@ -24,13 +24,15 @@
         .mail { background: #EA4335; }
         
         .post { background: white; padding: 25px; margin-bottom: 25px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; margin-top: 15px; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
         h1 { color: #1a73e8; margin-top: 0; }
     </style>
 </head>
 <body>
 
     <div id="lock-screen">
-        <h2>🔒 כניסה למערכת E</h2>
+        <h2>🔒 כניסה לאתר של דובלה</h2>
         <input type="password" id="passInput" placeholder="הכנס קוד גישה">
         <button class="btn-primary" onclick="checkPass()">כניסה</button>
         <p id="error" style="color: red; display: none; margin-top: 10px;">קוד שגוי.</p>
@@ -38,31 +40,30 @@
 
     <div id="main-content">
         <div class="bot-container">
-            <div class="bot-msg" id="botText">שלום! אני הבוט של חברת E. במה אוכל לעזור?</div>
-            
+            <div class="bot-msg" id="botText">אהלן! הגעתם לאתר של דובלה. במה אפשר לעזור? 🧸</div>
             <div class="options-grid" id="botOptions">
                 <button class="opt-btn" onclick="botResponse('who')">מי בנה את האתר?</button>
                 <button class="opt-btn" onclick="botResponse('price')">האם האתר בתשלום?</button>
                 <button class="opt-btn" onclick="botResponse('time')">כמה אתם זמינים?</button>
                 <button class="opt-btn" onclick="botResponse('special')">מה מיוחד בחברה?</button>
-                <button class="opt-btn" onclick="botResponse('contact')" style="grid-column: span 2;">צור קשר 📞</button>
+                <button class="opt-btn" onclick="botResponse('contact')" style="grid-column: span 2;">צור קשר עם הצוות 📞</button>
             </div>
-
             <div id="contactInfo" style="display:none;" class="contact-links">
-                <p>נשמח לדבר איתך!</p>
+                <p>דובלה והמנהל מחכים לכם:</p>
                 <a href="https://wa.me/972500000000" class="wa" target="_blank">WhatsApp</a>
-                <a href="mailto:your-email@gmail.com" class="mail">שלח מייל</a>
-                <button class="opt-btn" onclick="resetBot()" style="display:block; margin-top:15px; width: 100%;">חזרה לתפריט הראשי</button>
+                <a href="mailto:your-email@gmail.com" class="mail">מייל</a>
+                <button class="opt-btn" onclick="resetBot()" style="display:block; margin-top:15px; width: 100%;">חזרה לתפריט</button>
             </div>
-            
             <button id="backMenu" class="opt-btn" onclick="resetBot()" style="display:none; margin-top:15px; width: 100%;">שאלה נוספת</button>
         </div>
 
         <div class="post">
-            <h1>חברת E - פתרונות דיגיטליים</h1>
-            <p>ברוכים הבאים לעמוד הרשמי. כאן בונים את העתיד (עם קצת עזרה מדובי 🧸).</p>
-            <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
-            <p><strong>חדשות המערכת:</strong> האתר עלה לאוויר בהצלחה!</p>
+            <h1>האתר של דובלה 🧸</h1>
+            <p>ברוכים הבאים למבצר הדיגיטלי שלנו. המקום שבו דובים וטכנולוגיה נפגשים.</p>
+            
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+            </div>
         </div>
     </div>
 
@@ -83,30 +84,16 @@
             const options = document.getElementById('botOptions');
             const contact = document.getElementById('contactInfo');
             const backBtn = document.getElementById('backMenu');
-
             options.style.display = 'none';
-            
-            if (type === 'who') {
-                text.innerText = "האתר הוקם על ידי E - חברה לייעוץ ובניית אתרים.";
-                backBtn.style.display = 'block';
-            } else if (type === 'price') {
-                text.innerText = "אתר וכל שרתי E חינמיים לגמרי, אבל תמיד אפשר לשלם 😉";
-                backBtn.style.display = 'block';
-            } else if (type === 'time') {
-                text.innerText = "מנהל האתר זמין רוב היום בוואטסאפ או במייל. אל תתביישו לפנות!";
-                backBtn.style.display = 'block';
-            } else if (type === 'special') {
-                text.innerText = "מה שמיוחד בחברה זה שהיא מנוהלת על ידי אדם אחד... ודובי! 🧸";
-                backBtn.style.display = 'block';
-            } else if (type === 'contact') {
-                text.innerText = "איך תרצו ליצור קשר?";
-                contact.style.display = 'block';
-                backBtn.style.display = 'none';
-            }
+            if (type === 'who') { text.innerText = "האתר הוקם על ידי E - חברה לייעוץ ובניית אתרים (ודובלה המפקח)."; backBtn.style.display = 'block'; }
+            else if (type === 'price') { text.innerText = "האתר חינמי לגמרי, דובלה לא לוקח כסף על דבש!"; backBtn.style.display = 'block'; }
+            else if (type === 'time') { text.innerText = "זמינים רוב היום בוואטסאפ או במייל. תשלחו הודעה!"; backBtn.style.display = 'block'; }
+            else if (type === 'special') { text.innerText = "מה שמיוחד זה השילוב המנצח של אדם אחד ודובי אחד. 🧸"; backBtn.style.display = 'block'; }
+            else if (type === 'contact') { text.innerText = "איך תרצו לדבר איתנו?"; contact.style.display = 'block'; backBtn.style.display = 'none'; }
         }
 
         function resetBot() {
-            document.getElementById('botText').innerText = "במה עוד אוכל לעזור?";
+            document.getElementById('botText').innerText = "עוד משהו שדובלה יכול לעזור בו?";
             document.getElementById('botOptions').style.display = 'grid';
             document.getElementById('contactInfo').style.display = 'none';
             document.getElementById('backMenu').style.display = 'none';
