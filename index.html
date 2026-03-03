@@ -4,49 +4,64 @@
     <meta charset="UTF-8">
     <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>אתר מאובטח</title>
+    <title>אתר החדשות המאובטח</title>
     <style>
-        body { font-family: sans-serif; background-color: #f0f2f5; margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+        body { font-family: -apple-system, system-ui, sans-serif; background-color: #f0f2f5; margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
         #lock-screen { text-align: center; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); width: 300px; }
-        #main-content { display: none; width: 90%; max-width: 800px; padding: 20px; }
-        input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box; text-align: center; }
-        button { background-color: #1a73e8; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; width: 100%; }
+        #main-content { display: none; width: 95%; max-width: 800px; padding: 20px; margin-top: 20px; }
+        input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; text-align: center; font-size: 16px; }
+        button { background-color: #1a73e8; color: white; border: none; padding: 12px 20px; border-radius: 8px; cursor: pointer; width: 100%; font-size: 16px; font-weight: bold; }
         button:hover { background-color: #1557b0; }
-        .post { background: white; padding: 20px; margin-bottom: 20px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .post { background: white; padding: 25px; margin-bottom: 25px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        h1 { color: #d32f2f; border-bottom: 2px solid #d32f2f; padding-bottom: 10px; }
+        .comment-section { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
     </style>
 </head>
 <body>
 
     <div id="lock-screen">
-        <h2>🔒 דף מוגן</h2>
-        <p>הכנס קוד גישה כדי לצפות בתוכן:</p>
+        <h2>🔒 כניסה מאובטחת</h2>
+        <p>הכנס את הקוד הסודי:</p>
         <input type="password" id="passInput" placeholder="הקוד כאן...">
-        <button onclick="checkPass()">כניסה</button>
-        <p id="error" style="color: red; display: none;">קוד שגוי, נסה שוב.</p>
+        <button onclick="checkPass()">כניסה לאתר</button>
+        <p id="error" style="color: red; display: none; margin-top: 10px;">קוד שגוי, נסה שוב.</p>
     </div>
 
     <div id="main-content">
         <div class="post">
-            <h1>ברוכים הבאים לאתר הסודי 🚀</h1>
-            <p>אם הצלחתם להיכנס, סימן שיש לכם את הקוד הנכון.</p>
-            <hr>
-            <h3>מה חדש היום?</h3>
-            <p>כאן תוכל לכתוב את החדשות או העדכונים שלך...</p>
+            <h1>חדשות חמות מהשטח! 🔥</h1>
+            <p>ברוכים הבאים לאתר החדשות הפרטי של <strong>tworrei6</strong>.</p>
+            <p>כאן תוכלו למצוא עדכונים שגוגל לעולם לא ימצא.</p>
         </div>
         
-        <div class="post">
-            <h3>תגובות</h3>
-            <p style="color: gray;">(אזור התגובות יתווסף בשלב הבא)</p>
+        <div class="comment-section">
+            <h3>💬 תגובות ודיונים</h3>
+            <script src="https://giscus.app/client.js"
+                data-repo="tworrei6-stack/h"
+                data-repo-id="R_kgDON-X5Ng"
+                data-category="Announcements"
+                data-category-id="DIC_kwDON-X5Ns4Cn_nO"
+                data-mapping="pathname"
+                data-strict="0"
+                data-reactions-enabled="1"
+                data-emit-metadata="0"
+                data-input-position="top"
+                data-theme="light"
+                data-lang="he"
+                crossorigin="anonymous"
+                async>
+            </script>
         </div>
     </div>
 
     <script>
         function checkPass() {
             const pass = document.getElementById('passInput').value;
-            // הקוד שביקשת
             if (pass === "E&יראמ=אירון") {
                 document.getElementById('lock-screen').style.display = 'none';
                 document.getElementById('main-content').style.display = 'block';
+                // שינוי הרקע כדי שיראה כמו אתר חדשות
+                document.body.style.alignItems = 'flex-start';
             } else {
                 document.getElementById('error').style.display = 'block';
             }
