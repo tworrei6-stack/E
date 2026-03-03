@@ -2,20 +2,56 @@
 <html dir="rtl" lang="he">
 <head>
     <meta charset="UTF-8">
-    <meta name="robots" content="noindex, nofollow"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>האתר שלי</title>
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>אתר מאובטח</title>
     <style>
-        body { font-family: sans-serif; background-color: #f4f4f9; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
-        .container { background: white; padding: 30px; border-radius: 15px; shadow: 0 5px 15px rgba(0,0,0,0.1); text-align: center; border: 2px solid #1a73e8; }
-        h1 { color: #1a73e8; }
-        p { color: #333; font-size: 1.2rem; }
+        body { font-family: sans-serif; background-color: #f0f2f5; margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+        #lock-screen { text-align: center; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); width: 300px; }
+        #main-content { display: none; width: 90%; max-width: 800px; padding: 20px; }
+        input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box; text-align: center; }
+        button { background-color: #1a73e8; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; width: 100%; }
+        button:hover { background-color: #1557b0; }
+        .post { background: white; padding: 20px; margin-bottom: 20px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>האתר של tworrei6 🚀</h1>
-        <p>כאן יהיה התוכן שאני אחליט עליו!</p>
-        <p style="font-size: 0.9rem; color: gray;">(האתר הזה מוגן מפני חיפוש בגוגל)</p>
+
+    <div id="lock-screen">
+        <h2>🔒 דף מוגן</h2>
+        <p>הכנס קוד גישה כדי לצפות בתוכן:</p>
+        <input type="password" id="passInput" placeholder="הקוד כאן...">
+        <button onclick="checkPass()">כניסה</button>
+        <p id="error" style="color: red; display: none;">קוד שגוי, נסה שוב.</p>
     </div>
+
+    <div id="main-content">
+        <div class="post">
+            <h1>ברוכים הבאים לאתר הסודי 🚀</h1>
+            <p>אם הצלחתם להיכנס, סימן שיש לכם את הקוד הנכון.</p>
+            <hr>
+            <h3>מה חדש היום?</h3>
+            <p>כאן תוכל לכתוב את החדשות או העדכונים שלך...</p>
+        </div>
+        
+        <div class="post">
+            <h3>תגובות</h3>
+            <p style="color: gray;">(אזור התגובות יתווסף בשלב הבא)</p>
+        </div>
+    </div>
+
+    <script>
+        function checkPass() {
+            const pass = document.getElementById('passInput').value;
+            // הקוד שביקשת
+            if (pass === "E&יראמ=אירון") {
+                document.getElementById('lock-screen').style.display = 'none';
+                document.getElementById('main-content').style.display = 'block';
+            } else {
+                document.getElementById('error').style.display = 'block';
+            }
+        }
+    </script>
+
 </body>
 </html>
