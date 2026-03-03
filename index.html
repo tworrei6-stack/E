@@ -14,7 +14,7 @@
         button:hover { background-color: #1557b0; }
         .post { background: white; padding: 25px; margin-bottom: 25px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
         h1 { color: #d32f2f; border-bottom: 2px solid #d32f2f; padding-bottom: 10px; }
-        .comment-section { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .comment-section { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); margin-top: 20px; }
     </style>
 </head>
 <body>
@@ -37,7 +37,7 @@
         <div class="comment-section">
             <h3>💬 תגובות ודיונים</h3>
             <script src="https://giscus.app/client.js"
-                data-repo="tworrei6-stack/h"
+                data-repo="tworrei6-stack/E"
                 data-repo-id="R_kgDON-X5Ng"
                 data-category="Announcements"
                 data-category-id="DIC_kwDON-X5Ns4Cn_nO"
@@ -60,8 +60,7 @@
             if (pass === "E&יראמ=אירון") {
                 document.getElementById('lock-screen').style.display = 'none';
                 document.getElementById('main-content').style.display = 'block';
-                // שינוי הרקע כדי שיראה כמו אתר חדשות
-                document.body.style.alignItems = 'flex-start';
+                document.body.style.alignItems = 'flex-start'; // מסדר את התוכן למעלה אחרי הכניסה
             } else {
                 document.getElementById('error').style.display = 'block';
             }
