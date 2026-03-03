@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>חברת E - ייעוץ ובנייה</title>
+    <title>חברת E - פתרונות דיגיטליים</title>
     <style>
         body { font-family: -apple-system, system-ui, sans-serif; background-color: #f0f2f5; margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
         #lock-screen { text-align: center; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); width: 300px; }
@@ -14,11 +14,11 @@
         
         /* עיצוב הבוט */
         .bot-container { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin-bottom: 20px; border-right: 5px solid #1a73e8; }
-        .bot-msg { background: #e8f0fe; padding: 10px; border-radius: 8px; margin-bottom: 10px; display: inline-block; }
-        .options-grid { display: grid; gap: 10px; margin-top: 10px; }
-        .opt-btn { background: white; border: 1px solid #1a73e8; color: #1a73e8; padding: 8px; border-radius: 20px; cursor: pointer; transition: 0.3s; }
+        .bot-msg { background: #e8f0fe; padding: 12px; border-radius: 8px; margin-bottom: 15px; display: block; line-height: 1.5; font-weight: 500; }
+        .options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
+        .opt-btn { background: white; border: 1px solid #1a73e8; color: #1a73e8; padding: 10px; border-radius: 12px; cursor: pointer; transition: 0.3s; font-size: 14px; }
         .opt-btn:hover { background: #1a73e8; color: white; }
-        .contact-links a { display: inline-block; margin: 10px 5px; padding: 10px; border-radius: 5px; text-decoration: none; color: white; font-weight: bold; }
+        .contact-links a { display: inline-block; margin: 10px 5px; padding: 12px 20px; border-radius: 8px; text-decoration: none; color: white; font-weight: bold; }
         .wa { background: #25D366; }
         .mail { background: #EA4335; }
         
@@ -37,20 +37,28 @@
     <div id="main-content">
         <div class="bot-container">
             <div class="bot-msg" id="botText">שלום! אני הבוט של חברת E. במה אוכל לעזור?</div>
+            
             <div class="options-grid" id="botOptions">
                 <button class="opt-btn" onclick="botResponse('who')">מי בנה את האתר?</button>
-                <button class="opt-btn" onclick="botResponse('contact')">צור קשר</button>
+                <button class="opt-btn" onclick="botResponse('price')">האם האתר בתשלום?</button>
+                <button class="opt-btn" onclick="botResponse('time')">כמה אתם זמינים?</button>
+                <button class="opt-btn" onclick="botResponse('special')">מה מיוחד בחברה?</button>
+                <button class="opt-btn" onclick="botResponse('contact')" style="grid-column: span 2;">צור קשר 📞</button>
             </div>
+
             <div id="contactInfo" style="display:none;" class="contact-links">
+                <p>נשמח לדבר איתך!</p>
                 <a href="https://wa.me/972500000000" class="wa" target="_blank">WhatsApp</a>
                 <a href="mailto:your-email@gmail.com" class="mail">שלח מייל</a>
-                <button class="opt-btn" onclick="resetBot()" style="display:block; margin-top:10px;">חזרה לתפריט</button>
+                <button class="opt-btn" onclick="resetBot()" style="display:block; margin-top:15px; width: 100%;">חזרה לתפריט הראשי</button>
             </div>
+            
+            <button id="backMenu" class="opt-btn" onclick="resetBot()" style="display:none; margin-top:15px; width: 100%;">שאלה נוספת</button>
         </div>
 
         <div class="post">
             <h1>חברת E - פתרונות דיגיטליים</h1>
-            <p>ברוכים הבאים לעמוד הרשמי שלנו.</p>
+            <p>ברוכים הבאים לעמוד הרשמי. כאן בונים את העתיד (עם קצת עזרה מדובי).</p>
         </div>
 
         <div class="post" style="padding: 10px;">
@@ -88,13 +96,26 @@
             const text = document.getElementById('botText');
             const options = document.getElementById('botOptions');
             const contact = document.getElementById('contactInfo');
+            const backBtn = document.getElementById('backMenu');
 
+            options.style.display = 'none';
+            
             if (type === 'who') {
                 text.innerText = "האתר הוקם על ידי E - חברה לייעוץ ובניית אתרים.";
+                backBtn.style.display = 'block';
+            } else if (type === 'price') {
+                text.innerText = "אתר וכל שרתי E חינמיים לגמרי, אבל תמיד אפשר לשלם 😉";
+                backBtn.style.display = 'block';
+            } else if (type === 'time') {
+                text.innerText = "מנהל האתר זמין רוב היום בוואטסאפ או במייל. אל תתביישו לפנות!";
+                backBtn.style.display = 'block';
+            } else if (type === 'special') {
+                text.innerText = "מה שמיוחד בחברה זה שהיא מנוהלת על ידי אדם אחד... ודובי! 🧸";
+                backBtn.style.display = 'block';
             } else if (type === 'contact') {
-                text.innerText = "נשמח לדבר איתך! בחר דרך התקשרות:";
-                options.style.display = 'none';
+                text.innerText = "איך תרצו ליצור קשר?";
                 contact.style.display = 'block';
+                backBtn.style.display = 'none';
             }
         }
 
@@ -102,6 +123,7 @@
             document.getElementById('botText').innerText = "במה עוד אוכל לעזור?";
             document.getElementById('botOptions').style.display = 'grid';
             document.getElementById('contactInfo').style.display = 'none';
+            document.getElementById('backMenu').style.display = 'none';
         }
     </script>
 </body>
